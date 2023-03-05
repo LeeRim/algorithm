@@ -7,17 +7,16 @@ import java.util.stream.Collectors;
 
 class Solution {
     public int solution(int k, int m, int[] score) {
-        List<Integer> scores = Arrays.stream(score).boxed()
+        List<Integer> scores = Arrays.stream(score)
+                .boxed()
                 .sorted(Comparator.reverseOrder())
                 .collect(Collectors.toList());
 
-        int total = 0;
-        for (int i = 0; i < scores.size(); i++) {
-            if ((i + 1) % m == 0) {
-                total += scores.get(i) * m;
-            }
+        int sum = 0;
+        for (int i = m - 1; i < score.length; i += m) {
+            sum += scores.get(i);
         }
-//        System.out.println(total);
-        return total;
+
+        return sum * m;
     }
 }
