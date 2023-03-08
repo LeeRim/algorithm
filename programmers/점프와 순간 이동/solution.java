@@ -1,18 +1,18 @@
 // [문제 링크]: https://school.programmers.co.kr/learn/courses/30/lessons/12980
 
-import java.util.*;
+class Solution {
 
-public class Solution {
     public int solution(int n) {
-        int ans = 1;
-
-        int sqrt;
-        while (n > 1) {
-            ans += n % 2;
-            n /= 2;
+        int count = 0;
+        while (n > 0) {
+            if (n % 2 == 0) {
+                n /= 2;
+                continue;
+            }
+            count++;
+            n--;
         }
 
-//        System.out.println(ans);
-        return ans;
+        return count;
     }
 }
