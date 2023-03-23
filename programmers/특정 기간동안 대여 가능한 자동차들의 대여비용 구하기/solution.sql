@@ -12,8 +12,8 @@ where c.CAR_ID not in (
     select CAR_ID
     from CAR_RENTAL_COMPANY_RENTAL_HISTORY
     where END_DATE between DATE('2022-11-01') and DATE('2022-11-30')
-    or (START_DATE >= DATE('2022-11-01') and START_DATE <= DATE('2022-11-30'))
+    or START_DATE between DATE('2022-11-01') and DATE('2022-11-30')
     or (START_DATE <= DATE('2022-11-01') and END_DATE >= DATE('2022-11-30'))
 )
-and FEE >= 500000 and FEE < 2000000
+and FEE between 500000 and 2000000
 order by FEE DESC, CAR_TYPE, c.CAR_ID DESC
