@@ -15,5 +15,5 @@ where c.CAR_ID not in (
     or START_DATE between DATE('2022-11-01') and DATE('2022-11-30')
     or (START_DATE <= DATE('2022-11-01') and END_DATE >= DATE('2022-11-30'))
 )
-and FEE between 500000 and 2000000
+and FEE between 500000 and 2000001
 order by FEE DESC, CAR_TYPE, c.CAR_ID DESC
