@@ -11,7 +11,7 @@ left join (
 where c.CAR_ID not in (
     select CAR_ID
     from CAR_RENTAL_COMPANY_RENTAL_HISTORY
-    where (END_DATE >= DATE('2022-11-01') and END_DATE <= DATE('2022-11-30'))
+    where END_DATE between DATE('2022-11-01') and DATE('2022-11-30')
     or (START_DATE >= DATE('2022-11-01') and START_DATE <= DATE('2022-11-30'))
     or (START_DATE <= DATE('2022-11-01') and END_DATE >= DATE('2022-11-30'))
 )
